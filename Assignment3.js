@@ -41,7 +41,8 @@ not-*/
 function fact(n){
     if(n==0 || n==1)
         return 1
-    return n*fact(n-1)
+    else
+        return n*fact(n-1)
 }
 function special(n){
     sum=0;temp=n
