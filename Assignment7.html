@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<head> <center><h1>Strings Assignment</h1></center></head>
+
+<body>
+    <script type="text/javascript">
+
+        function str1(){
+            str=document.getElementById("str1").value
+            if(str.length==0)
+                alert("Please enter a string.")
+            if(str.length<=4 && str.length>=1){
+                alert("The output is "+str);
+            }
+            else if(str.length>4){
+                alert("The output is "+str.slice(0,4))
+            }
+        }
+        function str2(){
+                str=document.getElementById("str2").value
+                if(str.length==0)
+                alert("Please enter a string.")
+                else{
+                words=str.split(" ")
+                newstr="";
+                for(i of words){
+                    newstr+=i;
+                }
+                alert("The desired output is "+newstr)}
+            }
+        function str3(){
+            str=document.getElementById("str3").value
+            if(str.length==0)
+                alert("Please enter a string.")
+            else{
+            words=str.split(" ")
+            newstr=words[1]+ " "+words[0]
+            alert("The desired output is "+newstr)}
+        }
+        function str4(){
+            str=document.getElementById("str4").value
+            if(str.length==0)
+                alert("Please enter a string.")
+            else
+                alert("The desired output is "+str.replace(/a/gi,"x"))
+        }
+        function str8(){
+            str=document.getElementById("str8").value
+            if(str.length==0)
+                alert("Please enter a string.")
+            else if(/[a-z]/.test(str[0]))
+                document.getElementById("output1").innerHTML="The entered string starts with lower case."
+            else
+            document.getElementById("output1").innerHTML="The entered string doesn't start with lowercase."
+        }
+        function str9(){
+            str=document.getElementById("str9").value
+            if(str.length==0)
+                alert("Please enter a string.")
+            else if(str.toLowerCase()=="yes")
+                document.getElementById("output2").innerHTML="You have entered YES agreeing to something."
+            else if(str.toLowerCase()!=="yes")
+                document.getElementById("output2").innerHTML="You have entered something irrelevant"    
+        }
+        function *str10(){
+            str1=document.getElementById("str101").value
+            yield(document.getElementById("a").innerHTML="String is converted to uppercase: "+str1.toUpperCase())
+            str2=document.getElementById("str102").value
+            yield(document.getElementById("b").innerHTML="The first character is converted to Uppercase: "+str2[0].toUpperCase()+str2.substr(1,))
+            str3=document.getElementById("str103").value
+            yield(document.getElementById("c").innerHTML="String is converted to Lowercase: "+str3.toLowerCase())
+            str4=document.getElementById("str104").value
+            substr=str4.substr(0,(str4.length)/2)
+            substr2=str4.substr((str4.length)/2,)
+            yield(document.getElementById("d").innerHTML="The swapped string is: "+substr2+" "+substr)
+            str5=document.getElementById("str105").value
+            letters=str5.match(/[a-y]/gi)
+            map=new Map()
+            for(i of letters){
+                    map.set(i,0)
+            }
+            for(i of letters){
+                if(map.has(i)){
+                    n=map.get(i)
+                    map.set(i,++n)
+                }
+            }
+            n=map.size; j=1
+            for(i of map){
+                document.getElementById(String(j)).innerHTML=i[0]+":"+i[1]
+                j++
+                        }
+            yield
+            str6=document.getElementById("str106").value
+            str=new String()
+            i=str6.length
+            while(i>=0){
+                str+=str6[i]
+                i--
+            }
+            yield(document.getElementById("f").innerHTML="The reversed string is: "+str.slice(9,))
+            
+        }
+        a=str10()
+    </script>
+
+    <b> 1. Input a String S, and check its length and if the length is greater than 4,
+    truncate the input String and output the result -<br></b>
+    Input: Ice Output: Ice <br>
+    Input:Icecream Output:Icec...<br>
+   <b>Enter a String:</b> <br> <input id="str1"></input>
+    <button onclick="str1()">Submit</button><br><br><br>
+
+    <b> 2. Input a String S with multiple words, and remove whitespaces and
+        output the result -</b><br>
+        Input: “Hii Boy” Output: “HiiBoy”<br>
+        <b>Enter a String:</b> <br> <input id="str2">
+        <button onclick="str2()">Submit</button><br><br><br>
+
+    <b> 3. Input a String S with two words, and replace first word with second word
+        and display the result -</b><br>
+        Input: “Hii Boy” Output: “Boy Hii”<br>
+        <b>Enter a String:</b> <br> <input id="str3">
+        <button onclick="str3()">Submit</button><br><br><br>
+
+    <b> 4. Input a String S with a word, and replace character “a” with “x” and
+        display the result -</b><br>
+        Input: “apple” Output: “xpple”<br>
+        <b>Enter a String:</b> <br> <input id="str4">
+        <button onclick="str4()">Submit</button><br><br><br>
+        
+    <b> 8. Write a Javascript function to test whether the first character of a string
+        is lowercase.</b><br>
+        <b>Enter a String:</b> <br> <input placeholder="To check the first character"id="str8">
+        <button onclick="str8()">Submit</button><br><p id="output1"></p><br>
+
+    <b>9. Give a correct verdict to users input if he enters "yes", "YES","Yes" ,etc
+        (any combination) using string methods.
+        How will you handle that ?</b><br> <input id="str9">
+        <button onclick="str9()">Submit</button><br><p id="output2"></p><br>
+
+    <b>10. Given a String S, achieve following tasks<br>
+        a) Convert the String into upper case.<br>
+        b) Convert only the first character to uppercase.<br>
+        c) Convert the String into lower case.<br>
+        d) Break the string into two halves and swap them.<br>
+        e) Count the repeating characters.<br>
+        f) Reverse the string</b> <br><br> <br><br>
+        
+        <p><b>PLEASE ENTER THE INPUT ONE AFTER THE OTHER IN AN ORDER.</b></p><br><br><br>
+        <b>a) Enter a String:</b> <input size="35" placeholder="Convert the String into upper case." id="str101">
+        <button onclick="a.next()">Submit</button><br>
+        <b><p id="a"></p><br></b>
+
+        <b>b) Enter a String:</b> <input size="35" placeholder="Convert only the first character to uppercase" id="str102">
+        <button onclick="a.next()">Submit</button><br>
+        <b><p id="b"></p><br></b>
+
+        <b>c) Enter a String:</b> <input size="35" placeholder="Convert the String into lower case." id="str103">
+        <button onclick="a.next()">Submit</button><br>
+        <b><p id="c"></p><br></b>
+
+        <b>d) Enter a String:</b> <input size="37" placeholder="Break the string into two halves and swap them." id="str104">
+        <button onclick="a.next()">Submit</button><br>
+        <b><p id="d"></p><br></b>
+
+        <b>e) Enter a String:</b> <input size="30" placeholder="Count the repeating characters." id="str105">
+        <button onclick="a.next()">Submit</button><br>
+      <b> <p id="1"></p>
+        <p id="2"></p>
+        <p id="3"></p>
+        <p id="4"></p>
+        <p id="5"></p>
+        <p id="6"></p>
+        <p id="7"></p>
+        <p id="8"></p>
+        <p id="9"></p>
+        <p id="10"></p>
+        <p id="11"></p>
+        <p id="12"></p>
+        <p id="13"></p>
+        <p id="14"></p>
+        <p id="15"></p>
+        <p id="16"></p>
+        <p id="17"></p>
+        <p id="18"></p>
+        <p id="19"></p>
+        <p id="20"></p>
+        <p id="21"></p>
+        <p id="22"></p>
+        <p id="23"></p>
+        <p id="24"></p>
+        <p id="25"></p>
+        <p id="26"></p>
+        <p id="27"></p>
+        <p id="28"></p>
+        <p id="29"></p>
+        <p id="30"></p>
+                </b>
+                <br>
+        <b>f) Enter a String:</b> <input size="37" placeholder="Reverse the String" id="str106">
+        <button onclick="a.next()">Submit</button><br>
+        <b><p id="f"></p><br></b>
+</body>
